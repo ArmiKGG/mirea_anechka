@@ -14,7 +14,6 @@ class OdderView(APIView):
         result = calc(first, second)
         odder = Odder(first, second, result)
         serialize_for_response = OdderSerializer(instance=odder)
-
         return Response(serialize_for_response.data)
 
 

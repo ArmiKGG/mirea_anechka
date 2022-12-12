@@ -1,0 +1,61 @@
+openapi: 3.0.3
+info:
+  title: ODDER API
+  version: 1.0.1
+  description: API that show only odd numbers
+paths:
+  /api/{first}/{second}:
+    get:
+      operationId: api_retrieve
+      parameters:
+      - in: path
+        name: first
+        schema:
+          type: integer
+        required: true
+      - in: path
+        name: second
+        schema:
+          type: integer
+        required: true
+      tags:
+      - api
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          description: No response body
+  /pretty/{first}/{second}:
+    get:
+      operationId: pretty_retrieve
+      parameters:
+      - in: path
+        name: first
+        schema:
+          type: integer
+        required: true
+      - in: path
+        name: second
+        schema:
+          type: integer
+        required: true
+      tags:
+      - pretty
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          description: No response body
+components:
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+    cookieAuth:
+      type: apiKey
+      in: cookie
+      name: sessionid

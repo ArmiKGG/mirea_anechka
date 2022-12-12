@@ -1,3 +1,5 @@
+import scipy
+
 
 def calc(first, second):
     result = []
@@ -6,7 +8,9 @@ def calc(first, second):
     if second % 2 != 0:
         result.append(second)
 
-    return result
+    scipy_array = scipy.array(result)
+
+    return scipy_array
 
 
 class Summator:
