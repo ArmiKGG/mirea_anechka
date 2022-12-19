@@ -1,0 +1,13 @@
+version: "3.9"
+services:
+  web:
+    build: ./main_app
+    ports:
+      - "8000:8000"
+  html:
+    build: ./html
+    ports:
+      - "80:80"
+    depends_on:
+      - web
+
