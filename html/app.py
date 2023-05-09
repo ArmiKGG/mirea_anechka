@@ -16,4 +16,4 @@ def handle_data():
     return response.text
 
 
-app.run('0.0.0.0', port=80)
+app.run('0.0.0.0', port=9090)

@@ -7,7 +7,16 @@ services:
   html:
     build: ./html
     ports:
-      - "80:80"
+      - "9090:9090"
     depends_on:
       - web
 
+  nginx:
+    container_name: nginx
+    restart: always
+    build: ./nginx
+    ports:
+      - "80:80"
+    depends_on:
+      - html
+      - web
