@@ -1,9 +1,9 @@
 
 
-class Odder:
-    def __init__(self, first, second, result):
-        self.first = first
-        self.second = second
-        self.result = result
+class Film:
+    def __init__(self, title, extra, details):
+        self.title = title
+        self.extra = extra
+        self.details = details
 
 

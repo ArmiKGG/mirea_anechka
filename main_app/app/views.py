@@ -1,30 +1,20 @@
+
 from rest_framework.response import Response
-from django.http import HttpResponse
 from rest_framework.views import APIView
-from .models import Odder
-from .serializers import OdderSerializer
-from .odder import calc, Summator
+from django.core.files.storage import default_storage
+from .parse_films import get_films
+from django.core.files.base import ContentFile
+from .serializers import HtmlFile
 
 
+class HtmlFileView(APIView):
+    serializer_class = HtmlFile
 
-class OdderView(APIView):
-
-    def get(self, request, first, second):
-
-        result = calc(first, second)
-        odder = Odder(first, second, result)
-        serialize_for_response = OdderSerializer(instance=odder)
-        return Response(serialize_for_response.data)
-
-
-
-class PrettyView(APIView):
-
-    def get(self, request, first, second):
-
-        result = Summator(first, second)
-        odder = result.getOdd()
-
-        return HttpResponse(odder)
-
-
+    def post(self, request):
+        validated_data = self.serializer_class(data=self.request.data)
+        validated_data.is_valid(raise_exception=True)
+        validated_data = validated_data.validated_data
+        file = validated_data['file']
+        path = default_storage.save(f'./static/{file}', ContentFile(file.read()))
+        films = get_films(path)
+        return Response(data=films)

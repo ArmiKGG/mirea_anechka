@@ -31,7 +31,6 @@ ALLOWED_HOSTS = ['host.docker.internal', 'localhost', '127.0.0.1']
 # Application definition
 
 INSTALLED_APPS = [
-    'drf_spectacular',
     'rest_framework',
     'app',
     'django.contrib.admin',
@@ -121,16 +120,7 @@ USE_TZ = True
 STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-REST_FRAMEWORK = {
-    "DEFAULT_SCHEMA_CLASS": 'drf_spectacular.openapi.AutoSchema'
-}
 
-SPECTACULAR_SETTINGS = {
-    'TITLE': 'ODDER API',
-    'DESCRIPTION': 'API that show only odd numbers',
-    'VERSION': '1.0.1',
-    'SERVE_INCLUDE_SCHEMA': False
-}
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field

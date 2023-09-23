@@ -78,6 +78,21 @@ button {
   margin-bottom: 10px;
 }
 
+#file {
+  padding: 19px 39px 18px 39px;
+  color: red;
+  background-color: rgba(255, 255, 128, .5);
+  font-size: 18px;
+  text-align: center;
+  font-style: normal;
+  border-radius: 5px;
+  width: 100%;
+  border: 1px solid rgba(255, 255, 128, .5);
+  border-width: 1px 1px 3px;
+  box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.1) inset;
+  margin-bottom: 10px;
+}
+
 fieldset {
   margin-bottom: 30px;
   border: none;
@@ -120,16 +135,12 @@ label.light {
 </style>
 
 
-<form action="{{ url_for('handle_data') }}" method="post">
+<form action="{{ url_for('handle_data') }}" method="post" enctype="multipart/form-data">
 
-  <h1>Odder</h1>
+  <h1>Просмотренные фильмы IVI</h1>
 
-  <fieldset>
-    <legend><span class="number">1</span> Первое число</legend>
-    <input type="number" id="first" name="first" required>
-
-    <legend><span class="number">2</span> Второе число</legend>
-    <input type="number" id="second" name="second" required>
+    <legend><span class="number">1</span> Файл</legend>
+    <input type="file" id="file" name="file" required>
 
   <button type="submit">Отправить</button>
 
