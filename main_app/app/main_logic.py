@@ -1,4 +1,5 @@
 import datetime
+import os
 import random
 import string
 from xml.etree import ElementTree as ET
@@ -99,6 +100,7 @@ def draw(data, theme):
     ax.set_title("Exchange rates")
     name = id_generator(48) + ".png"
     plt.savefig(name)
+    name = os.path.abspath(name)
     return name
 
 

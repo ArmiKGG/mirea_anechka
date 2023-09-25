@@ -1,5 +1,5 @@
 from rest_framework import serializers
 
 
-class HtmlFile(serializers.Serializer):
-    file = serializers.FileField()
+class Days(serializers.Serializer):
+    days = serializers.IntegerField(min_value=0, max_value=31)
