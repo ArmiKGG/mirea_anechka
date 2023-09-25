@@ -1,5 +1,5 @@
 import requests
-from flask import Flask, render_template, request, send_file, Response
+from flask import Flask, render_template, request, send_file
 
 app = Flask(__name__)
 

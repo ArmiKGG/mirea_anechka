@@ -10,7 +10,7 @@ from .serializers import Days
 class HtmlFileView(APIView):
     serializer_class = Days
 
-    def post(self, request):
+    def post(self, request, *args, **kwargs):
         validated_data = self.serializer_class(data=self.request.data)
         validated_data.is_valid(raise_exception=True)
         validated_data = validated_data.validated_data
